@@ -1,10 +1,10 @@
 # best_medical_calculator
 
-Flutter-based medikal calculations tool.
+Flutter-based medical calculations tool.
 
 ## Getting Started
 
-A helper tool medikal professionals or others for daily usage.
+A helper tool for medical professionals or others for daily usage.
 NOTE:All measurements done by sex/ethnic origins.
 
 Some of existing calcualtions : 
