@@ -5,8 +5,11 @@ Flutter-based medikal calculations tool.
 ## Getting Started
 
 A helper tool medikal professionals or others for daily usage.
+NOTE:All measurements done by sex/ethnic origins.
 
-- All measurements done by sex/ethnic origins.
-- BMI calculation
-- Average Life expectancey calculations.
-
+Some of existing calcualtions : 
+- BMI.
+- Average Life expectancey.
+- Body Fat Percentage.
+- Birthday prediction.
+- Pregnancy prediction.
