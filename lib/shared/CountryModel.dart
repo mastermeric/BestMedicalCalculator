@@ -4,7 +4,7 @@ class CountryModel {
   String kadin;
   String erkek;
 
-  CountryModel({this.ulke, this.ortalama, this.kadin, this.erkek});
+  CountryModel({required this.ulke, required this.ortalama, required this.kadin, required this.erkek});
 
   CountryModel.fromJson(Map<String, dynamic> json)
       : ulke = json['ulke'].toString(),

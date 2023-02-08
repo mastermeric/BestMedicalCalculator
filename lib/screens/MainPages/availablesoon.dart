@@ -11,8 +11,7 @@ class AvailableSoonPage extends StatefulWidget {
 }
 
 class _AvailableSoonPageState extends State<AvailableSoonPage> {
-  String
-      selectedSex; //Stful widget larda rebuild icin public degisken kullanmak yeter.
+  String? selectedSex; //Stful widget larda rebuild icin public degisken kullanmak yeter.
   int selectedKilogram = 70;
   int selectedHeigth = 170;
   var res;
@@ -21,7 +20,7 @@ class _AvailableSoonPageState extends State<AvailableSoonPage> {
   String kadinOrtalamaOmur = "";
   String hedefUlke = "";
   double selectedAge = 2;
-  DateFormat dateFormat;
+  DateFormat? dateFormat;
 
   var pickedDate = DateTime.now();
   var pickedTime = TimeOfDay.now();
@@ -53,7 +52,8 @@ class _AvailableSoonPageState extends State<AvailableSoonPage> {
               ),
             ),
             Expanded(
-              child: MyContainer(
+              child: MyContainer(                
+                gestureFonksiyonu: () => {},
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -80,7 +80,7 @@ class _AvailableSoonPageState extends State<AvailableSoonPage> {
   }
 
   pickDateFunc() async {
-    DateTime date = await showDatePicker(
+    DateTime? date = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(DateTime.now().year - 50),
@@ -95,7 +95,7 @@ class _AvailableSoonPageState extends State<AvailableSoonPage> {
   }
 
   pickTimeFunc() async {
-    TimeOfDay date = await showTimePicker(
+    TimeOfDay? date = await showTimePicker(
       context: context,
       initialTime: pickedTime,
     );

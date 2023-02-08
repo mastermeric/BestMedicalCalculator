@@ -1,18 +1,18 @@
 class UserDataForLifeExpectancy {
-  String selectedSex; //
-  double smokingPerDay;
-  double execisePerWeek;
-  int selectedKilogram;
-  int selectedHeigth;
-  String pageType;
-  double averageLifeForTargetSex;
-  double averageLife;
-  int age;
-  double averageLifeForMan;
-  double averageLifeForWoman;
-  String selectedCountry;
-  bool isResultOK;
-  String resultPhrase;
+  String? selectedSex; //
+  double? smokingPerDay;
+  double? execisePerWeek;
+  int? selectedKilogram;
+  int? selectedHeigth;
+  String? pageType;
+  double? averageLifeForTargetSex;
+  double? averageLife;
+  int? age;
+  double? averageLifeForMan;
+  double? averageLifeForWoman;
+  String? selectedCountry;
+  bool? isResultOK;
+  String? resultPhrase;
 
   UserDataForLifeExpectancy(
       {this.selectedSex,
@@ -32,21 +32,21 @@ class UserDataForLifeExpectancy {
 }
 
 class UserDataForBMI {
-  String sex; //
-  int weight;
-  int heigth;
-  int age;
+  String? sex; //
+  int? weight;
+  int? heigth;
+  int? age;
 
   UserDataForBMI({this.sex, this.weight, this.heigth, this.age});
 }
 
 class BMIResultData {
-  double bmiResult = 0;
-  String resultPhrase;
-  String resultPhraseSuggestion1;
-  String resultPhraseSuggestion2;
-  String resultPhraseSuggestion3;
-  bool resultOK;
+  double? bmiResult = 0;
+  String? resultPhrase;
+  String? resultPhraseSuggestion1;
+  String? resultPhraseSuggestion2;
+  String? resultPhraseSuggestion3;
+  bool? resultOK;
 
   BMIResultData(
       {this.bmiResult,
@@ -58,22 +58,22 @@ class BMIResultData {
 }
 
 class UserDataForBFP {
-  String sex; //
-  int weight;
-  int height;
-  int age;
+  String? sex; //
+  int? weight;
+  int? height;
+  int? age;
 
   UserDataForBFP({this.sex, this.weight, this.height, this.age});
 }
 
 class BFPResultData {
-  double bfpResult;
-  String resultPhrase;
-  String resultPhraseSuggestion1;
-  String resultPhraseSuggestion2;
-  String resultPhraseSuggestion3;
-  String resultBMI;
-  bool resultOK;
+  double? bfpResult;
+  String? resultPhrase;
+  String? resultPhraseSuggestion1;
+  String? resultPhraseSuggestion2;
+  String? resultPhraseSuggestion3;
+  String? resultBMI;
+  bool? resultOK;
 
   BFPResultData(
       {this.bfpResult,
@@ -86,13 +86,13 @@ class BFPResultData {
 }
 
 class PregnancyResultData {
-  DateTime userDate;
-  String firstPregnancyDate;
-  String secondPregnancyDate;
-  String thirdPregnancyDate;
-  String firstReglDate;
-  String secondReglDate;
-  String thirdReglDate;
+  DateTime? userDate;
+  String? firstPregnancyDate;
+  String? secondPregnancyDate;
+  String? thirdPregnancyDate;
+  String? firstReglDate;
+  String? secondReglDate;
+  String? thirdReglDate;
 
   PregnancyResultData(
       {this.userDate,
@@ -105,23 +105,23 @@ class PregnancyResultData {
 }
 
 class UserDataForCocukBoyKilo {
-  String sex; //
-  int weight;
-  int height;
-  int age;
+  String? sex; //
+  int? weight;
+  int? height;
+  int? age;
 
   UserDataForCocukBoyKilo({this.sex, this.weight, this.height, this.age});
 }
 
 class ResultDataForCocukBoyKilo {
-  String sex; //
-  int expectedMaxWeight;
-  int expectedMinWeight;
-  int expectedMaxHeight;
-  int expectedMinHeight;
-  int age;
-  bool heightWeightRangeOK;
-  String resultPhrase;
+  String? sex; //
+  int? expectedMaxWeight;
+  int? expectedMinWeight;
+  int? expectedMaxHeight;
+  int? expectedMinHeight;
+  int? age;
+  bool? heightWeightRangeOK;
+  String? resultPhrase;
 
   ResultDataForCocukBoyKilo(
       {this.sex,

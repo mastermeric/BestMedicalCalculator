@@ -11,12 +11,11 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 class ResultPageForLifeExpectancy extends StatelessWidget {
   final UserDataForLifeExpectancy _userDataForLifeExpectancy;
 
-  ResultPageForLifeExpectancy(
-      this._userDataForLifeExpectancy); // Sayfamiz UserData verisini kabul ediyor
-  var _lifeExpectancySonucu;
-  var bfpSonucCumlesi = "";
-  var assetImagePath = "";
-  Text _errPhrase;
+  ResultPageForLifeExpectancy(this._userDataForLifeExpectancy); // Sayfamiz UserData verisini kabul ediyor
+      var _lifeExpectancySonucu;
+      var bfpSonucCumlesi = "";
+      var assetImagePath = "";
+      Text? _errPhrase;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class ResultPageForLifeExpectancy extends StatelessWidget {
 
     //if (_lifeExpectancySonucu.toString().contains("ERROR")) {
     if (_userDataForLifeExpectancy.isResultOK == false ) {
-      _errPhrase = Text(  _userDataForLifeExpectancy.resultPhrase //MyGlobals.parametersOutOfRange 
+      _errPhrase = Text(  _userDataForLifeExpectancy.resultPhrase! //MyGlobals.parametersOutOfRange 
       + "\n" + MyGlobals.ageStr + " : " + _userDataForLifeExpectancy.age.toString() 
       + "\n" + MyGlobals.heightStr + " : " + _userDataForLifeExpectancy.selectedHeigth.toString() + " cm"
       + "\n" + MyGlobals.weightStr + " : " + _userDataForLifeExpectancy.selectedKilogram.toString() + " kg"
@@ -99,8 +98,8 @@ class ResultPageForLifeExpectancy extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
-                                  _errPhrase,
-                                  Text(MyGlobals.expectedLifeDuration +"\"" +_userDataForLifeExpectancy.selectedCountry.toUpperCase() +"\" :",style: TextStyle(fontSize: 20)),
+                                  _errPhrase!,
+                                  Text(MyGlobals.expectedLifeDuration +"\"" +_userDataForLifeExpectancy.selectedCountry!.toUpperCase() +"\" :",style: TextStyle(fontSize: 20)),
                                   SizedBox(height: 15),
                                   Text("- " +MyGlobals.man +" : " +_userDataForLifeExpectancy.averageLifeForMan.toString(),style: TextStyle(fontSize: 17)),SizedBox(height: 5),
                                   Text("- " +MyGlobals.woman +" : " +_userDataForLifeExpectancy.averageLifeForWoman.toString(),style: TextStyle(fontSize: 17)),

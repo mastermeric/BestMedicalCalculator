@@ -48,16 +48,16 @@ class ResultPageForBMI extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(_bmiResultData.resultPhrase,
+            Text(_bmiResultData.resultPhrase!,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             SizedBox(height: 20),
-            Text("- " + _bmiResultData.resultPhraseSuggestion1,
+            Text("- " + _bmiResultData.resultPhraseSuggestion1!,
                 style: TextStyle(fontSize: 17)),
             SizedBox(height: 5),
-            Text("- " + _bmiResultData.resultPhraseSuggestion2,
+            Text("- " + _bmiResultData.resultPhraseSuggestion2!,
                 style: TextStyle(fontSize: 17)),
             SizedBox(height: 5),
-            Text("- " + _bmiResultData.resultPhraseSuggestion3,
+            Text("- " + _bmiResultData.resultPhraseSuggestion3!,
                 style: TextStyle(fontSize: 17)),
           ],
         ),
@@ -70,7 +70,7 @@ class ResultPageForBMI extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(_bmiResultData.resultPhrase,
+            Text(_bmiResultData.resultPhrase!,
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -162,7 +162,7 @@ class ResultPageForBMI extends StatelessWidget {
                                 animationDuration: 750,
                                 width: 390,
                                 lineHeight: 35,
-                                percent: _bmiResultData.bmiResult / 100,
+                                percent: _bmiResultData.bmiResult! / 100,
                                 center: Text(
                                   _bmiResultData.bmiResult.toString() + "%",
                                   style: TextStyle(

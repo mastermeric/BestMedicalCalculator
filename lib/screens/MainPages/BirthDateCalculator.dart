@@ -11,8 +11,7 @@ class BirthDateCalculator extends StatefulWidget {
 }
 
 class _BirthDateCalculatorState extends State<BirthDateCalculator> {
-  String
-      selectedSex; //Stful widget larda rebuild icin public degisken kullanmak yeter.
+  String? selectedSex; //Stful widget larda rebuild icin public degisken kullanmak yeter.
   int selectedKilogram = 70;
   int selectedHeigth = 170;
   var res;
@@ -21,7 +20,7 @@ class _BirthDateCalculatorState extends State<BirthDateCalculator> {
   String kadinOrtalamaOmur = "";
   String hedefUlke = "";
   double selectedAge = 2;
-  DateFormat dateFormat;
+  DateFormat? dateFormat;
 
   var pickedDate = DateTime.now();
   var pickedTime = TimeOfDay.now();
@@ -57,8 +56,9 @@ class _BirthDateCalculatorState extends State<BirthDateCalculator> {
                         fontWeight: FontWeight.bold))),
             Expanded(
               child: MyContainer(
+                gestureFonksiyonu: () => {},
                 child: ListTile(
-                  title: Text(dateFormat.format(pickedDate),
+                  title: Text(dateFormat!.format(pickedDate),
                       style: TextStyle(
                           color: Colors.black54,
                           fontSize: 30,
@@ -91,7 +91,7 @@ class _BirthDateCalculatorState extends State<BirthDateCalculator> {
   }
 
   pickDateFunc() async {
-    DateTime date = await showDatePicker(
+    DateTime? date = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(DateTime.now().year - 50),
@@ -106,7 +106,7 @@ class _BirthDateCalculatorState extends State<BirthDateCalculator> {
   }
 
   pickTimeFunc() async {
-    TimeOfDay date = await showTimePicker(
+    TimeOfDay? date = await showTimePicker(
       context: context,
       initialTime: pickedTime,
     );

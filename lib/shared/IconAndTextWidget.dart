@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class IconAndTextWidget extends StatelessWidget {
   final String text ;
   final IconData ikonData ;
-  IconAndTextWidget({ this.text,this.ikonData});
+  IconAndTextWidget({ required this.text,required this.ikonData});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class IconAndTextWidget extends StatelessWidget {
 class IconAndTextWidgetBig extends StatelessWidget {
   final String text ;
   final IconData ikonData ;
-  IconAndTextWidgetBig({ this.text,this.ikonData});
+  IconAndTextWidgetBig({ required this.text,required this.ikonData});
 
   @override
   Widget build(BuildContext context) {

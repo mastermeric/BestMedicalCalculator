@@ -234,15 +234,15 @@ class ClassCocukBoyKiloHesapla {
       }
     }
 
-    if (_userDataForCocukBoyKilo.age < 14) {
-      if (_userDataForCocukBoyKilo.weight >
-          _resultDataForCocukBoyKilo.expectedMaxWeight) {
+    if (_userDataForCocukBoyKilo.age! < 14) {
+      if (_userDataForCocukBoyKilo.weight! >
+          _resultDataForCocukBoyKilo.expectedMaxWeight!) {
         _resultDataForCocukBoyKilo.resultPhrase =
             MyGlobals.cocukBoyKiloOverWeight + "\n" + MyGlobals.cocukBoyKiloExpectedWeightRange + 
             _resultDataForCocukBoyKilo.expectedMinWeight.toString() + " - " + _resultDataForCocukBoyKilo.expectedMaxWeight.toString() +" kg.";
         _resultDataForCocukBoyKilo.heightWeightRangeOK = false;
-      } else if (_userDataForCocukBoyKilo.weight <
-          _resultDataForCocukBoyKilo.expectedMinWeight) {
+      } else if (_userDataForCocukBoyKilo.weight! <
+          _resultDataForCocukBoyKilo.expectedMinWeight!) {
         _resultDataForCocukBoyKilo.resultPhrase =
             MyGlobals.cocukBoyKiloUnderWeight;
         _resultDataForCocukBoyKilo.heightWeightRangeOK = false;
@@ -278,7 +278,7 @@ class HesaplamaLifeExpectancy {
 
     BMIResultData _bMIResultData = new BMIResultData();
     _bMIResultData = HesaplamaBMI(_userDataForBMI).bmiHesapla();
-    bmi = _bMIResultData.bmiResult;
+    bmi = _bMIResultData.bmiResult!;
 
     //BFPResultData _bfpResultData = new BFPResultData();
 
@@ -291,13 +291,13 @@ class HesaplamaLifeExpectancy {
       _userDataLifeExpectancy.isResultOK = true;
     }
 
-    yasamSuresi = _userDataLifeExpectancy.averageLifeForTargetSex +
-        _userDataLifeExpectancy.execisePerWeek.toInt() -
-        _userDataLifeExpectancy.smokingPerDay / 2;
+    yasamSuresi = _userDataLifeExpectancy.averageLifeForTargetSex! +
+        _userDataLifeExpectancy.execisePerWeek!.toInt() -
+        _userDataLifeExpectancy.smokingPerDay! / 2;
 
     yasamSuresi = yasamSuresi +
-        (_userDataLifeExpectancy.selectedHeigth ~/
-                _userDataLifeExpectancy.selectedKilogram)
+        (_userDataLifeExpectancy.selectedHeigth! ~/
+                _userDataLifeExpectancy.selectedKilogram!)
             .toInt();
 
     if (bmi < 18.5) {
@@ -330,9 +330,9 @@ class HesaplamaBMI {
 
   BMIResultData bmiHesapla() {
     //Below 18.5 : Underweight ,  18.5 to 24.9: Normal , 25.0 to 29.9	 : Overwieght ,  30 or higher : Obese
-    var bmiStr = (this._userDataForBMI.weight /
-            ((this._userDataForBMI.heigth / 100) *
-                (this._userDataForBMI.heigth / 100)))
+    var bmiStr = (this._userDataForBMI.weight! /
+            ((this._userDataForBMI.heigth! / 100) *
+                (this._userDataForBMI.heigth! / 100)))
         .toStringAsFixed(2);
     var bmiSonuc = double.parse(bmiStr);
     var bmiSonucCumlesi = "";
@@ -350,7 +350,7 @@ class HesaplamaBMI {
     ClassCocukBoyKiloHesapla boyKiloHesaplama =
         new ClassCocukBoyKiloHesapla(_userDataForCocukBoyKilo);
     ResultDataForCocukBoyKilo boyKiloRes = boyKiloHesaplama.calculateBoyKilo();
-    boyKiloOrani = boyKiloRes.heightWeightRangeOK;
+    boyKiloOrani = boyKiloRes.heightWeightRangeOK!;
 
     _bmiResultData.bmiResult = bmiSonuc;
 
@@ -362,7 +362,7 @@ class HesaplamaBMI {
     }
 
     // TEENAGERs
-    if (_userDataForBMI.age >= 0 && _userDataForBMI.age <= 20) {
+    if (_userDataForBMI.age! >= 0 && _userDataForBMI.age! <= 20) {
       if (bmiSonuc <= 5) {
         bmiSonucCumlesi = MyGlobals.bmiResultPhraseTeenAgeUnderweight;
       }
@@ -534,7 +534,7 @@ class HesaplamaBFP {
 
     BMIResultData _bMIResultData = new BMIResultData();
     _bMIResultData = HesaplamaBMI(_userDataForBMI).bmiHesapla();
-    _bmiSonuc = _bMIResultData.bmiResult;
+    _bmiSonuc = _bMIResultData.bmiResult!;
 
     BFPResultData _bfpResultData = new BFPResultData();
 
@@ -548,23 +548,23 @@ class HesaplamaBFP {
     _userDataForBFP.sex == MyGlobals.woman ? genderVal = 0 : genderVal = 1;
 
     //CHILD
-    if (_userDataForBFP.age > 0 && _userDataForBFP.age < 20) {
+    if (_userDataForBFP.age! > 0 && _userDataForBFP.age! < 20) {
       if (_userDataForBFP.sex == MyGlobals.woman) {
         bfpSonuc =
-            ((1.51) * (_bmiSonuc)) - ((0.70) * (_userDataForBFP.age)) + 1.4;
+            ((1.51) * (_bmiSonuc)) - ((0.70) * (_userDataForBFP.age!)) + 1.4;
       } else {
         bfpSonuc =
-            ((1.51) * (_bmiSonuc)) - ((0.70) * (_userDataForBFP.age)) - 2.2;
+            ((1.51) * (_bmiSonuc)) - ((0.70) * (_userDataForBFP.age!)) - 2.2;
       }
     } else {
       //ADULTS
       if (_userDataForBFP.sex == MyGlobals.woman) {
         bfpSonuc =
-            ((1.20) * (_bmiSonuc)) + ((0.23) * (_userDataForBFP.age)) - 5.4;
+            ((1.20) * (_bmiSonuc)) + ((0.23) * (_userDataForBFP.age!)) - 5.4;
       } else {
         bfpSonuc =
             //((1.20) * (_bmiSonuc)) + ((0.23) * (_userDataForBFP.age)) - 16.2;
-            ((1.10) * (_bmiSonuc)) + ((0.23) * (_userDataForBFP.age)) - 16.2;
+            ((1.10) * (_bmiSonuc)) + ((0.23) * (_userDataForBFP.age!)) - 16.2;
       }
     }
 

@@ -31,8 +31,7 @@ class BodyFatPercentagePage extends StatefulWidget {
 }
 
 class _BodyFatPercentagePageState extends State<BodyFatPercentagePage> {
-  String
-      selectedSex; //Stful widget larda rebuild icin public degisken kullanmak yeter.
+  String selectedSex = ""; //Stful widget larda rebuild icin public degisken kullanmak yeter.
   double selectedAge = 20;
   int selectedKilogram = 70;
   int selectedHeigth = 170;
@@ -79,6 +78,7 @@ class _BodyFatPercentagePageState extends State<BodyFatPercentagePage> {
               children: [
                 Expanded(
                     child: MyContainerBig(
+                  gestureFonksiyonu: () => {},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -136,6 +136,7 @@ class _BodyFatPercentagePageState extends State<BodyFatPercentagePage> {
                 )),
                 Expanded(
                     child: MyContainerBig(
+                      gestureFonksiyonu: () => {},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -195,6 +196,7 @@ class _BodyFatPercentagePageState extends State<BodyFatPercentagePage> {
             )),
             Expanded(
                 child: MyContainer(
+                  gestureFonksiyonu: () => {},
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -237,9 +239,7 @@ class _BodyFatPercentagePageState extends State<BodyFatPercentagePage> {
                       selectedSex = MyGlobals.woman;
                     });
                   },
-                  renk: selectedSex == MyGlobals.woman
-                      ? Colors.lightBlueAccent[100]
-                      : Colors.white,
+                  renk: selectedSex == MyGlobals.woman? Colors.lightBlueAccent[100]!: Colors.white,
                 )),
                 Expanded(
                     child: MyContainerBig(
@@ -250,9 +250,7 @@ class _BodyFatPercentagePageState extends State<BodyFatPercentagePage> {
                       selectedSex = MyGlobals.man;
                     });
                   },
-                  renk: selectedSex == MyGlobals.man
-                      ? Colors.lightBlueAccent[100]
-                      : Colors.white,
+                  renk: selectedSex == MyGlobals.man? Colors.lightBlueAccent[100]!: Colors.white,
                 ))
               ],
             )),

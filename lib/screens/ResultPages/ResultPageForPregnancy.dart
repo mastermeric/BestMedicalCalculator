@@ -23,8 +23,8 @@ class _ResultPageForPregnancyState extends State<ResultPageForPregnancy> {
   String pregancyDate1 = "";
   String pregancyDate2 = "";
   String pregancyDate3 = "";
-  DateFormat dateFormat;
-  DateFormat timeFormat;
+  DateFormat? dateFormat;
+  DateFormat? timeFormat;
 
   @override
   void initState() {
@@ -41,29 +41,29 @@ class _ResultPageForPregnancyState extends State<ResultPageForPregnancy> {
     DateTime sonAdetGunu = widget._userDateTime;
 
     //REGL GUNLERINI BUL..
-    pregancyDate1 = dateFormat.format(new DateTime(
+    pregancyDate1 = dateFormat!.format(new DateTime(
             sonAdetGunu.year, sonAdetGunu.month, sonAdetGunu.day + 14)) +
         " - " +
-        dateFormat.format(new DateTime(
+        dateFormat!.format(new DateTime(
             sonAdetGunu.year, sonAdetGunu.month, sonAdetGunu.day + 14 + 3));
-    pregancyDate2 = dateFormat.format(new DateTime(sonAdetGunu.year,
+    pregancyDate2 = dateFormat!.format(new DateTime(sonAdetGunu.year,
             sonAdetGunu.month, sonAdetGunu.day + 14 + widget.mensturalCycle)) +
         " - " +
-        dateFormat.format(new DateTime(sonAdetGunu.year, sonAdetGunu.month,
+        dateFormat!.format(new DateTime(sonAdetGunu.year, sonAdetGunu.month,
             sonAdetGunu.day + 14 + widget.mensturalCycle + 3));
-    pregancyDate3 = dateFormat.format(new DateTime(
+    pregancyDate3 = dateFormat!.format(new DateTime(
             sonAdetGunu.year,
             sonAdetGunu.month,
             sonAdetGunu.day + 14 + widget.mensturalCycle * 2)) +
         " - " +
-        dateFormat.format(new DateTime(sonAdetGunu.year, sonAdetGunu.month,
+        dateFormat!.format(new DateTime(sonAdetGunu.year, sonAdetGunu.month,
             sonAdetGunu.day + 14 + widget.mensturalCycle * 2 + 3));
 
-    reglDate1 = dateFormat.format(new DateTime(sonAdetGunu.year,
+    reglDate1 = dateFormat!.format(new DateTime(sonAdetGunu.year,
         sonAdetGunu.month, sonAdetGunu.day + widget.mensturalCycle));
-    reglDate2 = dateFormat.format(new DateTime(sonAdetGunu.year,
+    reglDate2 = dateFormat!.format(new DateTime(sonAdetGunu.year,
         sonAdetGunu.month, sonAdetGunu.day + widget.mensturalCycle * 2));
-    reglDate3 = dateFormat.format(new DateTime(sonAdetGunu.year,
+    reglDate3 = dateFormat!.format(new DateTime(sonAdetGunu.year,
         sonAdetGunu.month, sonAdetGunu.day + widget.mensturalCycle * 3));
 
     //DOGUM GUNUNU BUL.
@@ -73,7 +73,7 @@ class _ResultPageForPregnancyState extends State<ResultPageForPregnancy> {
         sonAdetGunu.day); // 3 Ay çıkart..
     sonAdetGunu = new DateTime(sonAdetGunu.year + 1, sonAdetGunu.month,
         sonAdetGunu.day); // 1 sene ekle..
-    dogumTarihi = dateFormat.format(sonAdetGunu);
+    dogumTarihi = dateFormat!.format(sonAdetGunu);
 
     assetImagePath = 'images/pregnancy_icon.jpg';
 
@@ -112,7 +112,7 @@ class _ResultPageForPregnancyState extends State<ResultPageForPregnancy> {
                                 children: [
                                   Text(MyGlobals.pregnancyLastMensturationDate,
                                       style: TextStyle(fontSize: 20)),
-                                  Text(dateFormat.format(widget._userDateTime),
+                                  Text(dateFormat!.format(widget._userDateTime),
                                       style: TextStyle(
                                           fontSize: 30,
                                           fontWeight: FontWeight.bold,

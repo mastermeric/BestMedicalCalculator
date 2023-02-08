@@ -16,7 +16,7 @@ class LifeExpectancyPage extends StatefulWidget {
 }
 
 class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
-  String selectedSex; //Stful widget larda rebuild icin public degisken kullanmak yeter.
+  String selectedSex = ""; //Stful widget larda rebuild icin public degisken kullanmak yeter.
   double smokingPerDay = 0;
   double execisePerWeek = 0;
   int selectedKilogram = 70;
@@ -38,8 +38,8 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
 
       return tagObjs;
     } catch (exception) {
-      print("ERROR at exception : " + exception.toString());
-      return null;
+      print("ERROR at LifeExpectancyPage : " + exception.toString());
+      throw Exception('LifeExpectancyPage-Exception ' + exception.toString());
     }
   }
 
@@ -111,15 +111,15 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
                       showEnglishName: true,                      
                     ),
                     initialSelection: initialSelectionStr,
-                    onChanged: (CountryCode code) {
-                      res = haberFiltrele(code);
+                    onChanged: (CountryCode? code) {
+                      res = haberFiltrele(code!);
                       if (res == "") {
                         // TANIMSIZ Ülke ise ortalama Dunya oryalamasi : 72.8
                         setState(() {
                           ortalamaOmur = (72.8).toString();
                           erkekOrtalamaOmur = (72.8).toString();
                           kadinOrtalamaOmur = (72.8).toString();
-                          hedefUlke = code.name;
+                          hedefUlke = code!.name!;
                         });
                       } else {
                         setState(() {
@@ -150,6 +150,7 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
               children: [
                 Expanded(
                     child: MyContainer(
+                      gestureFonksiyonu: () => {},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -207,29 +208,30 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
                 )),
                 Expanded(
                     child: MyContainer(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
+                      gestureFonksiyonu: () => {},
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            MyGlobals.weightStr + " (kg)",
-                            style: TextStyle(
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                MyGlobals.weightStr + " (kg)",
+                                style: TextStyle(
                                 color: Colors.black54,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(selectedKilogram.toString(),
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold))
+                                )
+                                ],
+                                ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(selectedKilogram.toString(),
+                                  style: TextStyle(
+                                      color: Colors.black54,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold))
                         ],
                       ),
                       Row(
@@ -266,6 +268,7 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
             )),
             Expanded(
                 child: MyContainer(
+              gestureFonksiyonu: () => {},
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -298,6 +301,7 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
               children: [
                 Expanded(
                     child: MyContainer(
+                  gestureFonksiyonu: () => {},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -329,6 +333,7 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
             )),
             Expanded(
                 child: MyContainer(
+              gestureFonksiyonu: () => {}, // do nothing
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -371,9 +376,7 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
                       selectedSex = MyGlobals.woman;
                     });
                   },
-                  renk: selectedSex == MyGlobals.woman
-                      ? Colors.lightBlueAccent[100]
-                      : Colors.white,
+                  renk: selectedSex == MyGlobals.woman ? Colors.lightBlueAccent[100]! : Colors.white,
                 )),
                 Expanded(
                     child: MyContainerSmall(
@@ -384,9 +387,7 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
                       selectedSex = MyGlobals.man;
                     });
                   },
-                  renk: selectedSex == MyGlobals.man
-                      ? Colors.lightBlueAccent[100]
-                      : Colors.white,
+                  renk: selectedSex == MyGlobals.man ? Colors.lightBlueAccent[100]! : Colors.white,
                 ))
               ],
             ),
@@ -420,7 +421,7 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
                                 averageLifeForTargetSex:
                                     (selectedSex == MyGlobals.woman)
                                         ? double.parse(kadinOrtalamaOmur)
-                                        : double.parse(erkekOrtalamaOmur)))));
+                                        : double.parse(erkekOrtalamaOmur), isResultOK: false, pageType: '', resultPhrase: ''))));
               },
             )
           ],
@@ -431,7 +432,7 @@ class _LifeExpectancyPageState extends State<LifeExpectancyPage> {
     try {
       return _yeniHaberler.firstWhere((element) => element.ulke
           .toString()
-          .contains(code.name.replaceAll(" ", "").substring(0, 8)));
+          .contains(code.name!.replaceAll(" ", "").substring(0, 8)));
     } catch (e) {
       return "";
     }

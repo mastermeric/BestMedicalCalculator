@@ -12,8 +12,7 @@ class BodyMassIndexPage extends StatefulWidget {
 }
 
 class _BodyMassIndexPageState extends State<BodyMassIndexPage> {
-  String
-      selectedSex; //Stful widget larda rebuild icin public degisken kullanmak yeter.
+  String selectedSex = ""; //Stful widget larda rebuild icin public degisken kullanmak yeter.
   int selectedKilogram = 70;
   int selectedHeigth = 170;
   var res;
@@ -66,6 +65,7 @@ class _BodyMassIndexPageState extends State<BodyMassIndexPage> {
               children: [
                 Expanded(
                     child: MyContainerBig(
+                      gestureFonksiyonu: () => {},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -123,6 +123,7 @@ class _BodyMassIndexPageState extends State<BodyMassIndexPage> {
                 )),
                 Expanded(
                     child: MyContainerBig(
+                      gestureFonksiyonu: () => {},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -182,6 +183,7 @@ class _BodyMassIndexPageState extends State<BodyMassIndexPage> {
             )),
             Expanded(
                 child: MyContainer(
+                  gestureFonksiyonu: () => {},
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -225,7 +227,7 @@ class _BodyMassIndexPageState extends State<BodyMassIndexPage> {
                     });
                   },
                   renk: selectedSex == MyGlobals.woman
-                      ? Colors.lightBlueAccent[100]
+                      ? Colors.lightBlueAccent[100]!
                       : Colors.white,
                 )),
                 Expanded(
@@ -238,7 +240,7 @@ class _BodyMassIndexPageState extends State<BodyMassIndexPage> {
                     });
                   },
                   renk: selectedSex == MyGlobals.man
-                      ? Colors.lightBlueAccent[100]
+                      ? Colors.lightBlueAccent[100]!
                       : Colors.white,
                 ))
               ],

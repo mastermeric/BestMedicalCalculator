@@ -148,19 +148,19 @@ class _MenuListState extends State<MenuList> {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(menuItem.symbolicName,
+          Text(menuItem.symbolicName!,
               style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                   color: Colors.blue[300])),
-          Text(menuItem.title,
+          Text(menuItem.title!,
               style: TextStyle(fontSize: 20, color: Colors.grey[600])),
         ],
       ),
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
         child: Image.asset(
-          'images/' + menuItem.img,
+          'images/' + menuItem.img!,
           height: 50,
         ),
       ),

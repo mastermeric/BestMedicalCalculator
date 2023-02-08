@@ -37,14 +37,16 @@ class ResultPageForBFP extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(_bfpResultData.resultPhrase,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            Text(_bfpResultData.resultPhrase!,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             SizedBox(height: 20),
             //Text("- " +MyGlobals.calculatedBodyMassIndex +" : " +_bfpResultData.resultBMI,style: TextStyle(fontSize: 17)),
-            Text("- " +MyGlobals.calculatedBodyFatPercentage +" : " +_bfpResultData.bfpResult.toString(),style: TextStyle(fontSize: 17)),            SizedBox(height: 20),
-            Text("- " + _bfpResultData.resultPhraseSuggestion1,style: TextStyle(fontSize: 17)),SizedBox(height: 5),
-            Text("- " + _bfpResultData.resultPhraseSuggestion2,style: TextStyle(fontSize: 17)),
+            Text("- " +MyGlobals.calculatedBodyFatPercentage +" : " +_bfpResultData.bfpResult.toString(),style: TextStyle(fontSize: 17)),
+            SizedBox(height: 20),
+            Text("- " + _bfpResultData.resultPhraseSuggestion1!,style: TextStyle(fontSize: 17)),
             SizedBox(height: 5),
-            Text("- " + _bfpResultData.resultPhraseSuggestion3,style: TextStyle(fontSize: 17)),
+            Text("- " + _bfpResultData.resultPhraseSuggestion2!,style: TextStyle(fontSize: 17)),
+            SizedBox(height: 5),
+            Text("- " + _bfpResultData.resultPhraseSuggestion3!,style: TextStyle(fontSize: 17)),
           ],
         ),
       );
@@ -56,7 +58,7 @@ class ResultPageForBFP extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(_bfpResultData.resultPhrase,
+            Text(_bfpResultData.resultPhrase!,
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -148,7 +150,7 @@ class ResultPageForBFP extends StatelessWidget {
                                 animationDuration: 750,
                                 width: 390,
                                 lineHeight: 35,
-                                percent: _bfpResultData.bfpResult / 100,
+                                percent: _bfpResultData.bfpResult! / 100,
                                 center: Text(
                                   _bfpResultData.bfpResult.toString() + "%",
                                   style: TextStyle(

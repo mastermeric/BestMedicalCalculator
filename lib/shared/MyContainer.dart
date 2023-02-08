@@ -6,12 +6,12 @@ class MyContainer extends StatelessWidget {
   final Widget child ;
   final Function gestureFonksiyonu ;
 
-  MyContainer({this.renk = Colors.white, this.child, this.gestureFonksiyonu}); // Default renk : white
+  MyContainer({this.renk = Colors.white, required this.child, required this.gestureFonksiyonu}); // Default renk : white
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: gestureFonksiyonu ,
+      onTap: () =>{ gestureFonksiyonu()} ,
       child: Container(                
         child: this.child,
         width: 150,
@@ -34,12 +34,12 @@ class MyContainerSmall extends StatelessWidget {
   final Widget child ;
   final Function gestureFonksiyonu ;
 
-  MyContainerSmall({this.renk = Colors.white, this.child, this.gestureFonksiyonu}); // Default renk : white
+  MyContainerSmall({this.renk = Colors.white, required this.child, required this.gestureFonksiyonu}); // Default renk : white
   
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: gestureFonksiyonu,
+      onTap: () =>{ gestureFonksiyonu()} ,
       child: Container(
         child: this.child,
         width: 150,
@@ -60,12 +60,12 @@ class MyContainerBig extends StatelessWidget {
   final Widget child ;
   final Function gestureFonksiyonu ;
 
-  MyContainerBig({this.renk = Colors.white, this.child, this.gestureFonksiyonu}); // Default renk : white
+  MyContainerBig({this.renk = Colors.white, required this.child, required this.gestureFonksiyonu}); // Default renk : white
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: gestureFonksiyonu ,
+      onTap: () =>{ gestureFonksiyonu()} ,
       child: Container(
         child: this.child,
         width: 150,

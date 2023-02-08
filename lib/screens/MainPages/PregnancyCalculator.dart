@@ -11,8 +11,7 @@ class PregnancyCalculator extends StatefulWidget {
 }
 
 class _PregnancyCalculatorState extends State<PregnancyCalculator> {
-  String
-      selectedSex; //Stful widget larda rebuild icin public degisken kullanmak yeter.
+  String selectedSex = ""; //Stful widget larda rebuild icin public degisken kullanmak yeter.
   int selectedKilogram = 70;
   int selectedHeigth = 170;
   var res;
@@ -24,7 +23,7 @@ class _PregnancyCalculatorState extends State<PregnancyCalculator> {
 
   var pickedDate = DateTime.now();
   var pickedTime = TimeOfDay.now();
-  DateFormat dateFormat;
+  DateFormat? dateFormat;
   int _valueOfMensturation = 28;
   TextStyle myStyle20 = TextStyle(
       color: Colors.black54, fontSize: 20, fontWeight: FontWeight.bold);
@@ -59,8 +58,9 @@ class _PregnancyCalculatorState extends State<PregnancyCalculator> {
                 child: Text(MyGlobals.pregnancyLastMensturationDate,
                     style: myStyle20)),
             MyContainer(
+              gestureFonksiyonu: () => {},
               child: ListTile(
-                title: Text(dateFormat.format(pickedDate), style: myStyle30),
+                title: Text(dateFormat!.format(pickedDate), style: myStyle30),
                 trailing: Icon(Icons.keyboard_arrow_down),
                 onTap: () {
                   pickDateFunc();
@@ -84,9 +84,9 @@ class _PregnancyCalculatorState extends State<PregnancyCalculator> {
                       child: new Text(_val),
                     );
                   }).toList(),
-                  onChanged: (String tmpVal) {
+                  onChanged: (String? tmpVal) {
                     setState(() {
-                      dropdownValue = tmpVal;
+                      dropdownValue = tmpVal!;
                       _valueOfMensturation = int.parse(tmpVal);
                     });
                   },
@@ -113,7 +113,7 @@ class _PregnancyCalculatorState extends State<PregnancyCalculator> {
   }
 
   pickDateFunc() async {
-    DateTime date = await showDatePicker(
+    DateTime? date = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(DateTime.now().year - 50),
@@ -128,7 +128,7 @@ class _PregnancyCalculatorState extends State<PregnancyCalculator> {
   }
 
   pickTimeFunc() async {
-    TimeOfDay date = await showTimePicker(
+    TimeOfDay? date = await showTimePicker(
       context: context,
       initialTime: pickedTime,
     );

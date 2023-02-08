@@ -22,8 +22,8 @@ class _ResultPageForBirthDateState extends State<ResultPageForBirthDate> {
   // String pregancyDate1 = "";
   // String pregancyDate2 = "";
   // String pregancyDate3 = "";
-  DateFormat dateFormat;
-  DateFormat timeFormat;
+  DateFormat? dateFormat;
+  DateFormat? timeFormat;
 
   @override
   void initState() {
@@ -46,7 +46,7 @@ class _ResultPageForBirthDateState extends State<ResultPageForBirthDate> {
         sonAdetGunu.day); // 3 Ay çıkart..
     sonAdetGunu = new DateTime(sonAdetGunu.year + 1, sonAdetGunu.month,
         sonAdetGunu.day); // 1 sene ekle..
-    dogumTarihi = dateFormat.format(sonAdetGunu);
+    dogumTarihi = dateFormat!.format(sonAdetGunu);
 
     assetImagePath = 'images/Newborn_baby.jpg';
 
@@ -85,7 +85,7 @@ class _ResultPageForBirthDateState extends State<ResultPageForBirthDate> {
                                 children: [
                                   Text(MyGlobals.pregnancyLastMensturationDate,
                                       style: TextStyle(fontSize: 20)),
-                                  Text(dateFormat.format(widget._userDateTime),
+                                  Text(dateFormat!.format(widget._userDateTime),
                                       style: TextStyle(
                                           fontSize: 30,
                                           fontWeight: FontWeight.bold,
